@@ -93,13 +93,14 @@ final class Series {
         return length == 0 ? start : start + " " + length;
     }
 
-    /** What the rule blocks, with the number of numbers. */
+    /** What the rule blocks: the count of numbers and, for a +91 prefix, its digits after +91. */
     String describe() {
         if (length == 0) {
             if (!start.startsWith("+91")) return start + "…  (every number that starts with it)";
             long count = 1;
             for (int i = start.length(); i < HOME_LEN; i++) count *= 10;
-            return count == 1 ? start + "  (1 number)" : start + "…  (" + count(count) + ")";
+            return count == 1 ? start + "  (1 number)"
+                    : start + "…  (" + count(count) + ", " + (start.length() - 3) + "-digit prefix)";
         }
         if (length == 1) return start + "  (1 number)";
         long s = Long.parseLong(start.substring(1));

@@ -61,8 +61,10 @@ public class SeriesTest {
         eq(hit("+9114012345900", s), null, "series: longer number");
 
         // Descriptions
-        eq(Series.parse("+91140").get(0).describe(), "+91140…  (10,000,000 numbers)", "describe: prefix");
-        eq(Series.parse("+9114012345").get(0).describe(), "+9114012345…  (100 numbers)", "describe: 100 prefix");
+        eq(Series.parse("+91140").get(0).describe(), "+91140…  (10,000,000 numbers, 3-digit prefix)",
+                "describe: prefix");
+        eq(Series.parse("+9114012345").get(0).describe(), "+9114012345…  (100 numbers, 8-digit prefix)",
+                "describe: 100 prefix");
         eq(Series.parse("+911401234500").get(0).describe(), "+911401234500  (1 number)", "describe: full number");
         eq(Series.parse("+911401234590 20").get(0).describe(), "+911401234590 … +911401234609  (20 numbers)",
                 "describe: series");

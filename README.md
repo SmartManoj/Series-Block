@@ -15,12 +15,14 @@ Write one rule on each line, and start numbers with +91 or 0:
 
 | Rule | Blocks |
 |---|---|
-| `+91140` | Every number that starts with +91 140 (10,000,000 numbers) |
+| `+91140` | 10,000,000 numbers (3-digit prefix): every number that starts with +91 140 |
+| `+9114012345` | 100 numbers (8-digit prefix): +911401234500 to +911401234599 |
 | `+911401234500 100` | 100 numbers, from +911401234500 to +911401234599 |
 | `+911401234590 20` | 20 numbers, from …590 to …609. A length can cross a prefix boundary. |
 | `+911401234500` | That one number |
 
-The app shows each rule with the count of numbers that it blocks.
+The app shows each rule with the count of numbers that it blocks. For a prefix, it also shows the
+number of digits after +91, for example "+9114012345…  (100 numbers, 8-digit prefix)".
 
 - "+", "+9" and "+91" are ignored, because they would block every Indian number.
 - The first number of a series with a length must be a full +91 number.
